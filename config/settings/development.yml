@@ -1,0 +1,6 @@
+db:
+  default:
+    host: '127.0.0.1'
+    username: WRITE YOUR USERNAME IN LOCAL FILE
+    password: WRITE YOUR PASSWORD IN LOCAL FILE
+    port: 3306
