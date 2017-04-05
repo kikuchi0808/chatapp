@@ -2,57 +2,81 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class='sidebar'>
 
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag '/images/sample_image.jpg', class: "img-circle", alt: "User Image" %>
+      </div>
+      <div class="pull-left info">
+        <p>Alexander Pierce</p>
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <!-- search form (Optional) -->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class='sidebar-menu'>
       <li class='header'>コンテンツ一覧</li>
 
       <li class='treeview'>
         <a href='#'>
-          <i class='fa fa-circle-o'></i><span>従業員</span>
+          <i class='fa fa-circle-o'></i><span>User page</span>
           <span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>
         </a>
         <ul class='treeview-menu'>
           <li>
-            <%= link_to employees_path do %>
-            <i class='fa fa-circle'></i><span>社員番号順</span>
+            <%= link_to talkers_path do %>
+            <i class='fa fa-circle'></i><span>User page1</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
           <li>
-            <%= link_to employees_by_position_path do %>
-            <i class='fa fa-circle'></i><span>役職順</span>
+            <%= link_to talkers_path do %>
+            <i class='fa fa-circle'></i><span>User page2</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
           <li>
-            <%= link_to employees_by_grade_path do %>
-            <i class='fa fa-circle'></i><span>給与グレード順</span>
+            <%= link_to talkers_path do %>
+            <i class='fa fa-circle'></i><span>User page3</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
         </ul>
       </li>
       <li>
-        <%= link_to departments_path do %>
-        <i class='fa fa-circle'></i><span>部門</span>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Chatroom1</span>
         <span class='pull-right-container'><i class='pull-right'></i></span>
         <% end %>
       </li>
       <li>
-        <%= link_to positions_path do %>
-        <i class='fa fa-circle'></i><span>役職</span>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Chatroom2</span>
         <span class='pull-right-container'><i class='pull-right'></i></span>
         <% end %>
       </li>
       <li>
-        <%= link_to locations_path do %>
-        <i class='fa fa-circle'></i><span>勤務地</span>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Chatroom3</span>
         <span class='pull-right-container'><i class='pull-right'></i></span>
         <% end %>
       </li>
       <li>
-        <%= link_to employment_types_path do %>
-        <i class='fa fa-circle'></i><span>雇用形態</span>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Chatroom4</span>
         <span class='pull-right-container'><i class='pull-right'></i></span>
         <% end %>
       </li>
