@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170405120029) do
 
   create_table "talkers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
+    t.string   "username",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
