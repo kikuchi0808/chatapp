@@ -1,0 +1,77 @@
+// scss-lint:disable SelectorDepth, QualifyingElement, ImportantRule, ColorVariable
+// scss-lint:disable NestingDepth, MergeableSelector
+
+.main-sidebar section.sidebar li a {
+  color: #b8c7ce !important;
+}
+
+.main-sidebar section.sidebar li a:hover {
+  color: #fff !important;
+}
+
+.main-sidebar section.sidebar li.header {
+  background-color: #1a2226;
+  color: #4b646f;
+}
+
+.main-sidebar section.sidebar form.sidebar-form {
+  border: 1px solid #374850;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.main-sidebar section.sidebar form.sidebar-form input {
+  background-color: #374850;
+  border: 1px solid transparent;
+  color: #666;
+}
+
+.main-sidebar section.sidebar form.sidebar-form input:focus {
+  background-color: #fff;
+}
+
+.main-sidebar section.sidebar form.sidebar-form span.input-group-btn button {
+  background-color: #374850;
+  border: 1px solid transparent;
+  color: #999;
+}
+
+.main-sidebar {
+  background-color: #222d32;
+}
+
+
+//header
+.main-header > a {
+  background-color: #367fa9;
+  color: #fff;
+}
+
+.main-header nav div.navbar-custom-menu ul.dropdown-menu li.user-header {
+  background-color: #3c8dbc;
+}
+
+.navbar div.navbar-custom-menu ul li.dropdown i {
+  color: #fff;
+}
+
+.navbar div.navbar-custom-menu ul li.dropdown a.dropdown-toggle {
+  background-color: #3c8dbc;
+}
+
+.navbar div.navbar-custom-menu ul li.dropdown a.dropdown-toggle:hover {
+  background-color: #357ca5;
+}
+
+.navbar > a.sidebar-toggle {
+  color: #fff;
+}
+
+.navbar div.navbar-custom-menu ul li a {
+  background-color: #3c8dbc;
+  color: #fff;
+}
+
+.navbar div.navbar-custom-menu ul li a:hover {
+  background-color: #357ca5;
+}

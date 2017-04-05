@@ -1,0 +1,29 @@
+.scroll-container {
+  height: 70px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scroll-item {
+  display: inline-block;
+}
+
+.fix-padding {
+  padding: 10px 30px;
+}
+
+.title-size {
+  font-size: 20px;
+}
+
+.fix-box {
+  margin: 5px;
+  padding: 10px;
+  width: 220px;
+}
+
+.no-employee {
+  font-size: 15px;
+  margin: 20px 5px 5px 10px;
+}

@@ -1,0 +1,62 @@
+<aside class='main-sidebar'>
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class='sidebar'>
+
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class='sidebar-menu'>
+      <li class='header'>コンテンツ一覧</li>
+
+      <li class='treeview'>
+        <a href='#'>
+          <i class='fa fa-circle-o'></i><span>従業員</span>
+          <span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>
+        </a>
+        <ul class='treeview-menu'>
+          <li>
+            <%= link_to employees_path do %>
+            <i class='fa fa-circle'></i><span>社員番号順</span>
+            <span class='pull-right-container'><i class='pull-right'></i></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to employees_by_position_path do %>
+            <i class='fa fa-circle'></i><span>役職順</span>
+            <span class='pull-right-container'><i class='pull-right'></i></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to employees_by_grade_path do %>
+            <i class='fa fa-circle'></i><span>給与グレード順</span>
+            <span class='pull-right-container'><i class='pull-right'></i></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= link_to departments_path do %>
+        <i class='fa fa-circle'></i><span>部門</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to positions_path do %>
+        <i class='fa fa-circle'></i><span>役職</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to locations_path do %>
+        <i class='fa fa-circle'></i><span>勤務地</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to employment_types_path do %>
+        <i class='fa fa-circle'></i><span>雇用形態</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

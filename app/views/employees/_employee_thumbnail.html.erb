@@ -1,0 +1,11 @@
+<%
+  alt        = employee.image.present? ? employee.name : 'No photo'
+  class_name = class_name || ''
+  img_url    = employee.image.present? ? employee.image.thumb.url : 'no_photo.jpg'
+%>
+
+<%= image_tag img_url,
+              alt: alt,
+              class: "#{class_name} img-responsive img-circle",
+              height: 100,
+              width: 100 %>

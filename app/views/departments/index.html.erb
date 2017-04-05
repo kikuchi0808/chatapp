@@ -1,0 +1,59 @@
+<%= render 'commons/sidebar' %>
+
+<%= render 'commons/header' %>
+
+<div class='content-wrapper'>
+  <section class='content-header'>
+    <h1>
+      部門リスト
+      <%= link_to new_department_path, class: 'btn' do %>
+        <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
+        新規登録
+      <% end %>
+    </h1>
+  </section>
+
+  <section class='content'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='box box-primary'>
+          <div class='box-header with-border'>
+            <h3 class='box-title'>部門管理表</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class='box-body'>
+            <table class='table table-bordered table-hover'>
+              <tbody>
+                <tr>
+                  <th style='width: 10px'>#</th>
+                  <th>部門名</th>
+                  <th style='width: 120px'></th>
+                  <th style='width: 70px'></th>
+                  <th style='width: 70px'></th>
+                </tr>
+                <% @departments.each do |department| %>
+                  <tr>
+                    <td><%= department.id %></td>
+                    <td><%= department.path_name %></td>
+                    <td><%= link_to '小部門作成', new_department_path(parent_id: department.id) %></td>
+                    <td>
+                      <%= link_to edit_department_path(department.id) do %>
+                        <i class='fa fa-pencil-square-o'></i>編集
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to department_path(department.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                        <i class='fa fa-exclamation-circle'></i>削除
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,165 @@
+<%= render 'commons/sidebar' %>
+
+<%= render 'commons/header' %>
+
+<div class='content-wrapper'>
+  <section class='content-header'>
+    <h1>
+      従業員情報
+      <%= link_to edit_employee_path, class: 'btn' do %>
+        <i class='fa fa-pencil-square-o fa-6' aria-hidden='true'></i>
+        編集
+      <% end %>
+    </h1>
+  </section>
+
+  <section class='content'>
+    <div class='row'>
+
+      <div class='col-md-3'>
+        <!-- Profile Image -->
+        <div class='box box-primary'>
+          <div class='box-body box-profile'>
+            <%= render 'employee_thumbnail', employee: @employee, class_name: 'profile-user-img' %>
+            <h3 class='profile-username text-center'><%= @employee.name %></h3>
+            <p class='text-muted text-center'><%= @employee.department.name %></p>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
+
+      <div class='col-md-9'>
+        <div class='box box-primary'>
+          <section class='invoice' style='margin:0px;'>
+            <!-- title row -->
+            <div class='row'>
+              <div class='col-xs-12'>
+                <small class='pull-right'>Date: <%= @employee.updated_at.to_s(:db) %></small>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- Table row -->
+            <div class='row'>
+              <div class='col-xs-12 col-lg-6'>
+                <table class='table no-margin'>
+                  <tbody>
+                  <tr>
+                    <td class="col-xs-6">社員番号</td>
+                    <td class="col-xs-6"><%= @employee.code %></td>
+                  </tr>
+                  <tr>
+                    <td>氏名</td>
+                    <td><%= @employee.name %></td>
+                  </tr>
+                  <tr>
+                    <td>フリガナ</td>
+                    <td><%= @employee.kana_name %></td>
+                  </tr>
+                  <tr>
+                    <td>性別</td>
+                    <td><%= @employee.gender_i18n %></td>
+                  </tr>
+                  <tr>
+                    <td>年齢</td>
+                    <td><%=  @employee.age %>歳</td>
+                  </tr>
+                  <tr>
+                    <td>生年月日</td>
+                    <td><%= @employee.birth_date %></td>
+                  </tr>
+                  <tr>
+                    <td>入社年月日</td>
+                    <td><%= @employee.join_date %></td>
+                  </tr>
+                  <tr>
+                    <td>雇用区分</td>
+                    <td><%= @employee.employment_type.name %></td>
+                  </tr>
+                  <tr>
+                    <td>配属部門</td>
+                    <td><%= @employee.department.name %></td>
+                  </tr>
+                  <tr>
+                    <td>役職</td>
+                    <td><%= @employee.position.name %></td>
+                  </tr>
+                  <tr>
+                    <td>職務</td>
+                    <td><%= @employee.role %></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class='col-xs-12 col-lg-6'>
+                <table class='table no-margin'>
+                  <tbody>
+                  <tr>
+                    <td class="col-xs-6">勤務地</td>
+                    <td class="col-xs-6"><%= @employee.location.name %></td>
+                  </tr>
+                  <tr>
+                    <td>入社区分</td>
+                    <td><%= @employee.join_classification_i18n %></td>
+                  </tr>
+                  <tr>
+                    <td>勤続年数</td>
+                    <td><%= service_years(@employee)[0] %>年<%= service_years(@employee)[1] %>ヶ月</td>
+                  </tr>
+                  <tr>
+                    <td>退職年月日</td>
+                    <td><%= @employee.retire_date %></td>
+                  </tr>
+                  <% if @employee.careers.present? %>
+                    <% @employee.careers.each do |career| %>
+                      <tr>
+                        <td>職歴</td>
+                        <td><%= career.name %></td>
+                      </tr>
+                    <% end %>
+                  <% else %>
+                    <tr>
+                      <td>職歴</td>
+                      <td></td>
+                    </tr>
+                  <% end %>
+                  <tr>
+                    <td>学歴</td>
+                    <td><%= @employee.school_career %></td>
+                  </tr>
+                  <tr>
+                    <td>学部</td>
+                    <td><%= @employee.school_department %></td>
+                  </tr>
+                  <tr>
+                    <td>最終学歴区分</td>
+                    <td><%= @employee.school_career_classification_i18n %></td>
+                  </tr>
+                  <tr>
+                    <td>賞罰情報</td>
+                    <td><%= @employee.reward_punishment %></td>
+                  </tr>
+                  <tr>
+                    <td>人事考課評価情報</td>
+                    <td><%= @employee.assessment %></td>
+                  </tr>
+                  <tr>
+                    <td>給与グレード情報</td>
+                    <% if @employee.current_salary_grade.present? %>
+                      <td><%= @employee.current_salary_grade.grade %><%= @employee.current_salary_grade.grade_class %></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

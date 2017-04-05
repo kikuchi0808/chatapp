@@ -1,0 +1,49 @@
+<%= render 'commons/sidebar' %>
+
+<%= render 'commons/header' %>
+
+<div class='content-wrapper'>
+  <section class='content-header'>
+    <h1>
+      <div class = 'col-sm-12 col-md-9 no-padding'>
+        <%= @department&.name || '従業員リスト' %>(<%= @employees.total_count %>名)
+
+        <%= link_to new_employee_path, class: 'btn no-side-padding' do %>
+          <i class='fa fa-pencil-square-o fa-6' aria-hidden='true'></i>
+          新規登録
+        <% end %>
+
+        <div class='dropdown btn no-side-padding'>
+          <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+            部門別 <span class='caret'></span>
+          </a>
+          <%= render 'commons/dropdown_departments_tree_menu',
+                      departments: @departments,
+                      controller: :employees,
+                      action: :index %>
+        </div>
+      </div>
+      <!-- search form -->
+
+      <%= form_tag employees_path, method: :get do %>
+        <div class='input-group col-sm-12 col-md-3'>
+          <%= text_field_tag :by_name, params[:by_name], class: 'form-control', placeholder: '名前検索...' %>
+          <%= hidden_field_tag :department_id, @department&.id %>
+            <span class='input-group-btn'>
+              <%= button_tag type: :submit, name: nil, class: 'btn btn-flat' do %>
+                <i class='fa fa-search'></i>
+              <% end %>
+            </span>
+        </div>
+      <% end %>
+      <!-- /.search form -->
+    </h1>
+  </section>
+
+  <section class='content'>
+      <div class='row'>
+        <%= render @employees %>
+      </div>
+    <%= paginate @employees %>
+  </section>
+</div>

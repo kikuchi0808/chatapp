@@ -1,0 +1,48 @@
+<div class='content-wrapper'>
+  <section class='content'>
+
+    <div class='row form-box'>
+      <div class='col-lg-8 col-lg-offset-2'>
+        <div class="box box-primary">
+          <%=form_tag({ :controller => 'employee_salary_grades', :action => 'create' }, { :method => :post}) do %>
+            <%= hidden_field_tag :department_id, department.id %>
+            <div class="box-header with-border">
+              <h3 class="box-title">給与グレード登録・<%= department.name %>（<%= employees.size %>名）</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th class='col-xs-2'>従業員番号</th>
+                  <th class='col-xs-3'>従業員名</th>
+                  <th class='col-xs-3'>所属部門</th>
+                  <th class='col-xs-2'>給与グレード</th>
+                  <th class='col-xs-2'>給与クラス</th>
+                </tr>
+              <% num = -1 %>
+              <% employees.each do |employee| %>
+                <% num += 1 %>
+                <tr>
+                  <td><%= employee.code %></td>
+                  <td><%= employee.name %></td>
+                  <td><%= employee.department.name %></td>
+                  <td><%= select_tag "salary_grade[#{num}][grade]", options_for_select(SalaryGrade.grades.keys, selected: employee.current_salary_grade&.grade), prompt: '選択してください', class: 'form-control' %></td>
+                  <td><%= select_tag "salary_grade[#{num}][grade_class]", options_for_select(SalaryGrade::GradeClasses, selected: employee.current_salary_grade&.grade_class), prompt: '選択してください', class: 'form-control' %></td>
+                  <%= hidden_field "salary_grade[#{num}]", 'employee_id', value: employee.id %>
+                </tr>
+              <% end %>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <%= submit_tag "保存", class: "btn btn-primary"%>
+            </div>
+          <% end %>
+        </div>
+        <!-- /.box -->
+
+      </div>
+    </div>
+
+  </section>
+</div>

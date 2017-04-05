@@ -1,0 +1,9 @@
+<ul class='dropdown-menu scrollable-menu' role='menu'>
+  <% departments.each do |department| %>
+      <li>
+        <%= link_to controller: controller, action: action, department_id: department['id'] do %>
+          <%= department.path_name %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
