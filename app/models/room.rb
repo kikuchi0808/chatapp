@@ -14,6 +14,7 @@
 class Room < ApplicationRecord
   validates :name, presence: true
 
+  has_many :messages
   has_many :talker_rooms, dependent: :destroy
   has_many :talkers, through: :talker_rooms
   accepts_nested_attributes_for :talker_rooms,

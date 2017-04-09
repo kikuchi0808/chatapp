@@ -32,6 +32,15 @@
                 <%= f.label :name %>
                 <%= f.text_field :name, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter room name.." %>
               </div>
+
+              <strong>Current roommate (<%= @room.talkers.size %>)</strong>
+
+              <p>
+                <% @room.talkers.each do |talker| %>
+                  <span class="label label-primary"><%= talker.username %></span>
+                <% end %>
+              </p>
+
               <%= f.fields_for :talker_rooms do |ff| %>
                 <div class="form-group">
                   <%= ff.label :talker_id %>
