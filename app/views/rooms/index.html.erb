@@ -22,128 +22,50 @@
 
     <!-- Your Page Content Here -->
     <div class="row">
-      <div class="col-md-4">
 
-        <!-- About Me Box -->
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title">Chatroom info</h3>
+      <% @rooms.each_with_index do |room, index|%>
+        <div class="col-md-4">
 
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Chatroom <%= index+1 %></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
             </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body box-profile">
-            <%= image_tag '/images/sample_image.jpg', class: "profile-user-img img-responsive img-circle", alt: "User profile picture" %>
+            <!-- /.box-header -->
+            <div class="box-body box-profile">
+              <%= image_tag '/images/sample_image.jpg', class: "profile-user-img img-responsive img-circle", alt: "User profile picture" %>
 
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
+              <h3 class="profile-username text-center"><%= room.name %></h3>
 
-            <p class="text-muted text-center">Software Engineer</p>
+              <p class="text-muted text-center">Software Engineer</p>
 
-            <hr>
+              <hr>
 
-            <strong><i class="fa fa-pencil margin-r-5"></i> Room mate</strong>
+              <strong><i class="fa fa-pencil margin-r-5"></i> Roommate (<%= TalkerRoom.where(room_id: room.id).size %>)</strong>
 
-            <p>
-              <span class="label label-primary">Aaron Paul</span>
-              <span class="label label-primary">佐藤健</span>
-            </p>
+              <p>
+                <% TalkerRoom.where(room_id: room.id).each do |talker_room| %>
+                  <span class="label label-primary"><%= talker_room.talker.username %></span>
+                <% end %>
+              </p>
 
-            <hr>
+              <hr>
 
-            <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
-
-      <div class="col-md-4">
-
-        <!-- About Me Box -->
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title">Chatroom info</h3>
-
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
             </div>
+            <!-- /.box-body -->
           </div>
-          <!-- /.box-header -->
-          <div class="box-body box-profile">
-            <%= image_tag '/images/sample_image.jpg', class: "profile-user-img img-responsive img-circle", alt: "User profile picture" %>
-
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-            <p class="text-muted text-center">Software Engineer</p>
-
-            <hr>
-
-            <strong><i class="fa fa-pencil margin-r-5"></i> Room mate</strong>
-
-            <p>
-              <span class="label label-primary">Aaron Paul</span>
-              <span class="label label-primary">佐藤健</span>
-            </p>
-
-            <hr>
-
-            <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-          </div>
-          <!-- /.box-body -->
+          <!-- /.box -->
         </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
-
-      <div class="col-md-4">
-
-        <!-- About Me Box -->
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title">Chatroom info</h3>
-
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-            </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body box-profile">
-            <%= image_tag '/images/sample_image.jpg', class: "profile-user-img img-responsive img-circle", alt: "User profile picture" %>
-
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-            <p class="text-muted text-center">Software Engineer</p>
-
-            <hr>
-
-            <strong><i class="fa fa-pencil margin-r-5"></i> Room mate</strong>
-
-            <p>
-              <span class="label label-primary">Aaron Paul</span>
-              <span class="label label-primary">佐藤健</span>
-            </p>
-
-            <hr>
-
-            <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
+        <!-- /.col -->
+      <% end %>
 
     </div>
     <!-- /.row -->

@@ -2,7 +2,7 @@
 
 class RoomsController < ApplicationController
   def index
-    @room = Room.all
+    @rooms = Room.all
   end
 
   def show
