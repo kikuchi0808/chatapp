@@ -30,55 +30,44 @@
     <ul class='sidebar-menu'>
       <li class='header'>コンテンツ一覧</li>
 
+      <li>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Userpage</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+
       <li class='treeview'>
         <a href='#'>
-          <i class='fa fa-circle-o'></i><span>User page</span>
+          <i class='fa fa-circle-o'></i><span>Chatroom</span>
           <span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>
         </a>
         <ul class='treeview-menu'>
           <li>
-            <%= link_to talkers_path do %>
-            <i class='fa fa-circle'></i><span>User page1</span>
+            <%= link_to rooms_path do %>
+            <i class='fa fa-circle'></i><span>Chatroom list</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
           <li>
-            <%= link_to talkers_path do %>
-            <i class='fa fa-circle'></i><span>User page2</span>
+            <%= link_to room_path(id: 1) do %>
+            <i class='fa fa-circle'></i><span>Chatroom 1</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
           <li>
-            <%= link_to talkers_path do %>
-            <i class='fa fa-circle'></i><span>User page3</span>
+            <%= link_to room_path(id: 1) do %>
+            <i class='fa fa-circle'></i><span>Chatroom 2</span>
+            <span class='pull-right-container'><i class='pull-right'></i></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to room_path(id: 1) do %>
+            <i class='fa fa-circle'></i><span>Chatroom 3</span>
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
         </ul>
-      </li>
-      <li>
-        <%= link_to talkers_path do %>
-        <i class='fa fa-circle'></i><span>Chatroom1</span>
-        <span class='pull-right-container'><i class='pull-right'></i></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to talkers_path do %>
-        <i class='fa fa-circle'></i><span>Chatroom2</span>
-        <span class='pull-right-container'><i class='pull-right'></i></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to talkers_path do %>
-        <i class='fa fa-circle'></i><span>Chatroom3</span>
-        <span class='pull-right-container'><i class='pull-right'></i></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to talkers_path do %>
-        <i class='fa fa-circle'></i><span>Chatroom4</span>
-        <span class='pull-right-container'><i class='pull-right'></i></span>
-        <% end %>
       </li>
     </ul>
   </section>

@@ -10,34 +10,24 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form">
+        <%= form_for @room do |f| %>
           <div class="box-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter room name.." %>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <input type="file" id="exampleInputFile">
-
-              <p class="help-block">Example block-level help text here.</p>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Check me out
-              </label>
-            </div>
-          </div>
+            <%= f.fields_for :talker_rooms do |ff| %>
+              <div class="form-group">
+                <%= ff.label :talker_id %>
+                <%= ff.collection_select :talker_id, Talker.all, :id, :username, { prompt: true }, { class: 'form-control'} %>
+              </div>
+            <% end %>
           <!-- /.box-body -->
 
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <%= f.submit "保存", class: "btn btn-primary"%>
           </div>
-        </form>
+        <% end %>
       </div>
       <!-- /.box -->
     </div>

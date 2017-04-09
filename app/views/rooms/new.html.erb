@@ -14,7 +14,43 @@
   </section>
 
   <!-- Main content -->
-  <%= render 'commons/room_form' %>
+  <section class="content">
+
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">チャットルーム新規作成</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <%= form_for @room do |f| %>
+            <div class="box-body">
+              <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter room name.." %>
+              </div>
+              <%= f.fields_for :talker_rooms do |ff| %>
+                <div class="form-group">
+                  <%= ff.label :talker_id %>
+                  <%= ff.collection_select :talker_id, Talker.all, :id, :username, { prompt: true }, { class: 'form-control'} %>
+                </div>
+              <% end %>
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+              <%= f.submit "保存", class: "btn btn-primary"%>
+            </div>
+          <% end %>
+        </div>
+        <!-- /.box -->
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </section>
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
