@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class RoomsController < ApplicationController
-  def index
-    @rooms = Room.all
-  end
+  def index; end
 
   def show
     @room = Room.find(params[:id])

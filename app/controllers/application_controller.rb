@@ -3,7 +3,11 @@
 # rubocop:disable Metrics/LineLength
 
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: 'staging', password: 'ahCh5fie3o' if ENV['PROTECT_WITH_BASIC_AUTH']
+  before_action :set_rooms
 
-  protect_from_forgery with: :exception
+  private
+
+  def set_rooms
+    @rooms = Room.all
+  end
 end

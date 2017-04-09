@@ -49,24 +49,16 @@
             <span class='pull-right-container'><i class='pull-right'></i></span>
             <% end %>
           </li>
-          <li>
-            <%= link_to room_path(id: 1) do %>
-            <i class='fa fa-circle'></i><span>Chatroom 1</span>
-            <span class='pull-right-container'><i class='pull-right'></i></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to room_path(id: 1) do %>
-            <i class='fa fa-circle'></i><span>Chatroom 2</span>
-            <span class='pull-right-container'><i class='pull-right'></i></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to room_path(id: 1) do %>
-            <i class='fa fa-circle'></i><span>Chatroom 3</span>
-            <span class='pull-right-container'><i class='pull-right'></i></span>
-            <% end %>
-          </li>
+
+          <% @rooms.each do |room| %>
+            <li>
+              <%= link_to room_path(id: room.id) do %>
+              <i class='fa fa-circle'></i><span><%= room.name %></span>
+              <span class='pull-right-container'><i class='pull-right'></i></span>
+              <% end %>
+            </li>
+          <% end %>
+
         </ul>
       </li>
     </ul>
