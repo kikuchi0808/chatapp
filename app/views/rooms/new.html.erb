@@ -1,68 +1,70 @@
-<!-- Main Header -->
-<%= render 'commons/header' %>
-<!-- Left side column. contains the logo and sidebar -->
-<%= render 'commons/sidebar' %>
+<div class='wrapper'>
+  <!-- Main Header -->
+  <%= render 'commons/header' %>
+  <!-- Left side column. contains the logo and sidebar -->
+  <%= render 'commons/sidebar' %>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-      <li class="active">Here</li>
-    </ol>
-  </section>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
+    <!-- Main content -->
+    <section class="content">
 
-    <!-- Your Page Content Here -->
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
-        <!-- general form elements -->
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title">チャットルーム新規作成</h3>
-          </div>
-          <!-- /.box-header -->
-          <!-- form start -->
-          <%= form_for @room do |f| %>
-            <div class="box-body">
-              <div class="form-group">
-                <%= f.label :name %>
-                <%= f.text_field :name, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter room name.." %>
-              </div>
-              <%= f.fields_for :talker_rooms do |ff| %>
-                <div class="form-group">
-                  <%= ff.label :talker_id %>
-                  <%= ff.collection_select :talker_id, Talker.all, :id, :username, { prompt: true }, { class: 'form-control'} %>
-                </div>
-              <% end %>
-            <!-- /.box-body -->
-
-            <div class="box-footer">
-              <%= f.submit "保存", class: "btn btn-primary"%>
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">チャットルーム新規作成</h3>
             </div>
-          <% end %>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <%= form_for @room do |f| %>
+              <div class="box-body">
+                <div class="form-group">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter room name.." %>
+                </div>
+                <%= f.fields_for :talker_rooms do |ff| %>
+                  <div class="form-group">
+                    <%= ff.label :talker_id %>
+                    <%= ff.collection_select :talker_id, Talker.all, :id, :username, { prompt: true }, { class: 'form-control'} %>
+                  </div>
+                <% end %>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <%= f.submit "保存", class: "btn btn-primary"%>
+              </div>
+            <% end %>
+          </div>
+          <!-- /.box -->
         </div>
-        <!-- /.box -->
       </div>
-    </div>
-    <!-- /.row -->
+      <!-- /.row -->
 
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-
-<!-- Main Footer -->
-<footer class="main-footer">
-  <!-- To the right -->
-  <div class="pull-right hidden-xs">
-    Anything you want
+    </section>
+    <!-- /.content -->
   </div>
-  <!-- Default to the left -->
-  <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-</footer>
-<!-- Add the sidebar's background. This div must be placed
-     immediately after the control sidebar -->
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+  </footer>
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+</div>
