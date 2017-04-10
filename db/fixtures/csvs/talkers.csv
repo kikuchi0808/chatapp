@@ -1,9 +1,4 @@
-id,name,username
-1,佐藤健,takeru
-2,桐谷健太,kenta
-3,桐谷美玲,mirei
-4,北川景子,keiko
-5,菅田将暉,suda
-6,吉高由里子,yoshitaka
-7,妻夫木聡,tsumabuki
-8,石原さとみ,satomi
+id,name,username,user_id
+1,佐藤健,takeru,1
+2,桐谷健太,kenta,2
+3,桐谷美玲,mirei,3

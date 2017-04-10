@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.talker_rooms.build
   end
-
+  
   def update
     if @room = Room.update(room_params)
       render :show

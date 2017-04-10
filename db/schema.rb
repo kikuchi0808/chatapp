@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409091403) do
+ActiveRecord::Schema.define(version: 20170410120029) do
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "talker_id",                null: false
@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 20170409091403) do
   create_table "talkers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.string   "username",   null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_talkers_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,4 +68,5 @@ ActiveRecord::Schema.define(version: 20170409091403) do
   add_foreign_key "messages", "talkers"
   add_foreign_key "talker_rooms", "rooms"
   add_foreign_key "talker_rooms", "talkers"
+  add_foreign_key "talkers", "users"
 end
