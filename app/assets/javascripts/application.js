@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require admin-lte/bootstrap/js/bootstrap
 //= require admin-lte/dist/js/app
 //= require admin-lte/plugins/iCheck/icheck.js
