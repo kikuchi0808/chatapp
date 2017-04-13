@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'talkers#index'
+  root to: 'talkers#show'
   resources :talkers
   resources :rooms
 

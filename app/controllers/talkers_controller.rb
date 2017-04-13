@@ -6,7 +6,7 @@ class TalkersController < ApplicationController
   end
 
   def show
-    @talker = Talker.find(params[:id])
+    @talker = Talker.find(current_user.talker.id)
   end
 
   def new
@@ -16,6 +16,18 @@ class TalkersController < ApplicationController
   def create
     if @talker = Talker.create(talker_params)
       render :index
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @talker = Talker.find(current_user.talker.id)
+  end
+
+  def update
+    if @talker = Talker.update(talker_params)
+      render :show
     else
       render :new
     end
