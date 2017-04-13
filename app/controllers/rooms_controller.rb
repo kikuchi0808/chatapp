@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @messages = Message.where(room_id: params[:id])
+    gon.watch.talker_id = current_user.talker.id
+    gon.watch.room_id = params[:id]
   end
 
   def new

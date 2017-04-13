@@ -86,6 +86,9 @@ gem 'newrelic_rpm'
 # Simple health check of Rails app
 gem 'health_check'
 
+# To send parameter from rails controller to javascript file
+gem 'gon'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen'
