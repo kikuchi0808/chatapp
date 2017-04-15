@@ -42,6 +42,15 @@
                   <% end %>
                 </p>
 
+                <div class="form-group">
+                  <%= f.label :subtitle %>
+                  <%= f.text_field :subtitle, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter subtitle.." %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :note %>
+                  <%= f.text_field :note, class: "form-control", id: "exampleInputEmail1",  placeholder:"Enter note.." %>
+                </div>
+
                 <!-- <%= f.fields_for :talker_rooms do |ff| %>
                   <div class="form-group">
                     <%= ff.label :talker_id %>

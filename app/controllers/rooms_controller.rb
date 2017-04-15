@@ -30,7 +30,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room = Room.update(room_params)
-      render :show
+      render :index
     else
       render :edit
     end
@@ -39,6 +39,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, talker_rooms_attributes: [:talker_id, :id])
+    params.require(:room).permit(:name, :subtitle, :note, talker_rooms_attributes: [:talker_id, :id])
   end
 end
