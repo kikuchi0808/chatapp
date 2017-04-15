@@ -13,4 +13,6 @@
 # frozen_string_literal: true
 
 class TalkerRoom < ApplicationRecord
+  belongs_to :talker
+  belongs_to :room
 end

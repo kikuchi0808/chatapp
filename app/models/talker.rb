@@ -12,4 +12,10 @@
 # frozen_string_literal: true
 
 class Talker < ApplicationRecord
+  has_many :messages
+  has_many :talker_rooms, dependent: :destroy
+  has_many :rooms, through: :talker_rooms
+  belongs_to :user, inverse_of: :talker
+
+  validates :name, :username, presence: true
 end

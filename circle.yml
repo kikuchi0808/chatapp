@@ -1,0 +1,15 @@
+dependencies:
+  pre:
+    - bin/create_github_statuses.sh
+
+test:
+  override:
+    - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+
+  post:
+    - 'bundle exec "rake factory_girl:lint" 2> ${CIRCLE_ARTIFACTS}/factory_girl.txt || :'
+    - bundle exec rubocop --format html -o ${CIRCLE_ARTIFACTS}/rubocop_output.html
+    - 'bundle exec "scss-lint app/assets/stylesheets" > ${CIRCLE_ARTIFACTS}/scss-lint.txt || :'
+    - bundle exec brakeman -o ${CIRCLE_ARTIFACTS}/brakeman_output.json -o ${CIRCLE_ARTIFACTS}/brakeman_output.html
+    - bundle exec rubycritic app lib --mode-ci --path ${CIRCLE_ARTIFACTS}/rubycritic/
+    - bin/update_github_statuses.sh

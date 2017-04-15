@@ -1,0 +1,23 @@
+// Place all the styles related to the Talkers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#top-page-wrapper {
+  background-image: url('/images/image2.jpg');
+  background-size: cover;
+}
+
+#welcome-title-box{
+  text-align: center;
+  padding-top: 10vh;
+  color: white;
+
+}
+
+#welcome-title-box h1{
+  font-size: 14vw;
+}
+
+#welcome-title-box h2{
+  font-size: 3vw;
+}

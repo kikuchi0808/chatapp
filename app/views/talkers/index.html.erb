@@ -1,0 +1,33 @@
+<div class='wrapper'>
+    <!-- Main Header -->
+  <%= render 'commons/header' %>
+  <!-- Left side column. contains the logo and sidebar -->
+  <%= render 'commons/sidebar' %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div id='top-page-wrapper' class="content-wrapper">
+    <div class="row">
+      <div id='welcome-title-box' class="col-md-8 col-md-offset-2">
+        <h1>Chatapp</h1>
+        <h2>welcome back <%= current_user.talker.username %>!</h2>
+
+        <div class="row">
+          <%= link_to new_room_path do %>
+            <div style='margin-top: 2vh;' class="label label-primary col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-2">
+            <h5>Start with new chatroom</h5></div>
+          <% end %>
+          <%= link_to talker_path(id: current_user.talker.id) do %>
+            <div style='margin-top: 2vh;' class="label label-primary col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-2">
+            <h5>Visit your own page first</h5></div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <!-- /.content-wrapper -->
+
+
+</div>
