@@ -31,6 +31,13 @@
       <li class='header'>コンテンツ一覧</li>
 
       <li>
+        <%= link_to talkers_path do %>
+        <i class='fa fa-circle'></i><span>Toppage</span>
+        <span class='pull-right-container'><i class='pull-right'></i></span>
+        <% end %>
+      </li>
+
+      <li>
         <%= link_to talker_path(id: current_user.id) do %>
         <i class='fa fa-circle'></i><span>Userpage</span>
         <span class='pull-right-container'><i class='pull-right'></i></span>
