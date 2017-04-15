@@ -3,6 +3,9 @@ class CreateInitialModels < ActiveRecord::Migration[5.0]
     create_table :talkers do |t|
       t.string :name, null: false
       t.string :username, null: false
+      t.string :hobby
+      t.string :occupation
+      t.text :note
       t.references :user, foreign_key: true, index: true, null: false
 
       t.timestamps
@@ -10,6 +13,8 @@ class CreateInitialModels < ActiveRecord::Migration[5.0]
 
     create_table :rooms do |t|
       t.string :name, null: false
+      t.string :subtitle
+      t.text :note
 
       t.timestamps
     end

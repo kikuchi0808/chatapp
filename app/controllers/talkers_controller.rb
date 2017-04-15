@@ -27,7 +27,7 @@ class TalkersController < ApplicationController
 
   def update
     if @talker = Talker.update(talker_params)
-      render :show
+      render :index
     else
       render :new
     end
@@ -36,6 +36,6 @@ class TalkersController < ApplicationController
   private
 
   def talker_params
-    params.require(:talker).permit(:name, :username).merge(user_id: current_user.id)
+    params.require(:talker).permit(:name, :username, :hobby, :note, :occupation).merge(user_id: current_user.id)
   end
 end
